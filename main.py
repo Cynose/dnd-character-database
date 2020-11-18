@@ -44,12 +44,16 @@ class Character():
         self.ideals = []
         self.bonds = []
         self.flaws = []
+        self.allies = []
+        self.enemies = []
+        self.other = []
+        self.back_type = ''
     def backstory_creation(self):
         backstory = input("Give a backstory for " + self.name + "\n> ")
         self.backstory = backstory
     def character_details(self):
         def alignment_selection(self):
-            alignment = input('Choose Alignment \n> ').lower()
+            alignment = input('Choose Alignment: ce, cg, cn, le, lg, ln, nr, ng, n \n> ').lower()
             if alignment != 'ce' or 'cg' or 'cn' or 'le' or 'lg' or 'ln' or 'ne' or 'ng' or 'n':
                 self.alignment = alignment.upper()
             else: 
@@ -62,7 +66,7 @@ class Character():
 
         def physic_selection(self):
 
-            traits_input = input('List some traits, seperate with commas: \n> ')
+            traits_input = input('List some personality traits, seperate with commas: \n> ')
             self.traits = traits_input.split(',')
 
             ideals_input = input('List some ideals, seperate with commas: \n> ')
@@ -73,3 +77,21 @@ class Character():
 
             flaws_input = input('List some flaws, seperate with commas: \n> ')
             self.flaws = flaws_input.split(',')
+
+        def backstory_details(self):
+            allies_input = input('List some allies or friends, seperate with commas: \n> ')
+            self.allies = allies_input.split(',')
+
+            enemies_input = input('List some enemies, seperate with commas: \n> ')
+            self.enemies = enemies_input.split(',')
+
+            other_input = input('List some other details. Each detail will be split at each comma: \n> ')
+            self.other = other_input.split(',')
+
+            def backtype(self):
+                backstory_type = input('Choose a backstory type: Acolyte, Criminal, Spy, Folk Hero, Haunted One, Noble, Sage, Soldier: \n>  ').lower()
+                if backstory_type == 'acolyte' or 'criminal' or 'spy' or 'folk hero' or 'haunted one' or 'noble' or 'sage' or 'soldier':
+                    self.back_type = backstory_type
+                else:
+                    input_error()
+                    backtype(self)
